@@ -1,0 +1,3 @@
+// The configured options and settings
+#define IGACpp_version_major @IGACpp_VERSION_MAJOR@
+#define IGACpp_version_minor @IGACpp_VERSION_MINOR@

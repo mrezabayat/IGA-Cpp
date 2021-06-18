@@ -1,0 +1,1 @@
+add_library(BSpline BSpline.cpp BSpline.h)
