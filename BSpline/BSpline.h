@@ -25,10 +25,10 @@ namespace IGACpp
 
         /*! \brief This functions evaluates the value of basis function in parametric space
          * \param xi point in the parametric space
-         * \param idx index of basis function
+         * \param Kidx index of basis function
          * \param degree degree of basis function
          */
-        double basisFunction(double xi, int idx, int degree);
+        double basisFunction(double xi, int Kidx, int degree);
     private:
         int _degree{-1}; // degree of BSpline
         std::vector<std::vector<double>> _ctrlPts; // control points

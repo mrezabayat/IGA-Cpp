@@ -5,7 +5,7 @@ namespace IGACpp
 {
     void BSpline::setKnotVectors(std::vector<double> knotVector)
     {
-        // check
+        // check if the given knot vector is non-decreasing
         for (size_t i{}; i < (knotVector.size() - 1); ++i)
         {
             if (knotVector.at(i) > knotVector.at(i + 1))
@@ -18,7 +18,7 @@ namespace IGACpp
         _knotVector = knotVector;
     }
 
-    double BSpline::basisFunction(double xi, int idx, int degree)
+    double BSpline::basisFunction(double xi, int Kidx, int degree)
     {
         // Checks
         if (degree < 0)
@@ -33,7 +33,7 @@ namespace IGACpp
         double value{}; // value of basis function at the given point in the parametric space
         if (degree == 0)
         {
-            if (xi >= _knotVector.at(idx) and xi < _knotVector.at(idx + 1) and _knotVector.at(idx) != _knotVector.at(idx + 1))
+            if (xi >= _knotVector.at(Kidx) and xi < _knotVector.at(Kidx + 1) and _knotVector.at(Kidx) != _knotVector.at(Kidx + 1))
             {
                 value = 1;
             }
@@ -46,16 +46,16 @@ namespace IGACpp
         else
         {
             double A{}, B{};
-            if (_knotVector.at(idx + degree) != _knotVector.at(idx))
+            if (_knotVector.at(Kidx + degree) != _knotVector.at(Kidx))
             {
-                A = (xi - _knotVector.at(idx)) / (_knotVector.at(idx + degree) - _knotVector.at(idx));
+                A = (xi - _knotVector.at(Kidx)) / (_knotVector.at(Kidx + degree) - _knotVector.at(Kidx));
             }
-            if (_knotVector.at(idx + degree + 1) != _knotVector.at(idx + 1))
+            if (_knotVector.at(Kidx + degree + 1) != _knotVector.at(Kidx + 1))
             {
-                B = (_knotVector.at(idx + degree + 1) - xi) / (_knotVector.at(idx + degree + 1) - _knotVector.at(idx + 1));
+                B = (_knotVector.at(Kidx + degree + 1) - xi) / (_knotVector.at(Kidx + degree + 1) - _knotVector.at(Kidx + 1));
             }
-            value = A * basisFunction(xi, idx, degree - 1) +
-                    B * basisFunction(xi, idx + 1, degree - 1);
+            value = A * basisFunction(xi, Kidx, degree - 1) +
+                    B * basisFunction(xi, Kidx + 1, degree - 1);
             return value;
         }
 
