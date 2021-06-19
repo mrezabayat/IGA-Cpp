@@ -11,3 +11,9 @@ In this project I am coding the isogeometric analysis tought in "Isogeometric An
 - A knot vector is said to be **open** if its first and last knot values appear *p + 1* times.
 - In one dimension, basis functions formed from open knot vectors are interpolatory at the **ends** of the parameter space interval and at the **corners** of patches in multiple dimensions, but they are not, in general, interpolatory at interior knots.
 - In *Open Knot Vectors* in multiple dimensions the boundary of a B-spline object with *d* parametric dimensions is itself a B-spline object of dimension *d − 1*. 
+- B-splines basis
+  - have "homogeneous" pattern meaning they are each identical but shifted relative to each other
+  - constitutes a partition of unity
+  - is pointwise nonnegative over the entire domain
+  - of order *p* has *p - 1* continous derivative across the element boundaries
+  - of order *p* has a support of *p + 1* knot spans
