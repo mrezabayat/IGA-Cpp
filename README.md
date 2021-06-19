@@ -7,3 +7,4 @@ In this project I am coding the isogeometric analysis tought in "Isogeometric An
 - Size of knot vector should be *n+p+1* where
   - *p* is polynomial order
   - *n* is the number of basis functions used to construct the B-spline curve
+- Elements in FEM are equivalent to "Knot Span" in IGA
